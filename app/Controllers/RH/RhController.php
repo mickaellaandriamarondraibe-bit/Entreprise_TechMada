@@ -33,87 +33,102 @@ class RhController extends BaseController
     return view('rh/demandes', $data);
 }
 
-    public function approuver($id)
-{
-    $congeModel = new CongeModel();
-    $soldeModel = new SoldeModel();
+        public function approuver($id)
+    {
+            $congeModel = new CongeModel();
+            $soldeModel = new SoldeModel();
 
-    $demande = $congeModel->find($id);
+            $demande = $congeModel->find($id);
 
-    if (! $demande) {
+            if (! $demande) {
+                return redirect()->to('/rh/demandes')
+                    ->with('error', 'Demande introuvable.');
+            }
+
+            if ($demande['statut'] !== 'en_attente') {
+                return redirect()->to('/rh/demandes')
+                    ->with('error', 'Cette demande a déjà été traitée.');
+            }
+
+            $annee = date('Y', strtotime($demande['date_debut']));
+
+            $solde = $soldeModel
+                ->where('employe_id', $demande['employe_id'])
+                ->where('type_conge_id', $demande['type_conge_id'])
+                ->where('annee', $annee)
+                ->first();
+
+            if (! $solde) {
+                return redirect()->to('/rh/demandes')
+                    ->with('error', 'Solde introuvable pour cet employé.');
+            }
+
+            $joursRestants = $solde['jours_attribues'] - $solde['jours_pris'];
+
+            if ($joursRestants < $demande['nb_jours']) {
+                return redirect()->to('/rh/demandes')
+                    ->with('error', 'Solde insuffisant pour approuver cette demande.');
+            }
+
+            $soldeModel->update($solde['id'], [
+                'jours_pris' => $solde['jours_pris'] + $demande['nb_jours'],
+            ]);
+
+            $congeModel->update($id, [
+                'statut' => 'approuvee',
+                'commentaire_rh' => 'Demande approuvée par le responsable RH.',
+                'traite_par' => session()->get('employe_id') ?? 2,
+            ]);
+
+            return redirect()->to('/rh/demandes')
+                ->with('success', 'Demande approuvée. Le solde a été mis à jour.');
+    }
+
+
+    public function refuser($id)
+    {
+        $congeModel = new CongeModel();
+
+        $demande = $congeModel->find($id);
+
+        if (! $demande) {
+            return redirect()->to('/rh/demandes')
+                ->with('error', 'Demande introuvable.');
+        }
+
+        if ($demande['statut'] !== 'en_attente') {
+            return redirect()->to('/rh/demandes')
+                ->with('error', 'Cette demande a déjà été traitée.');
+        }
+
+        $commentaire = $this->request->getPost('commentaire_rh');
+
+        if (empty($commentaire)) {
+            $commentaire = 'Demande refusée par le responsable RH.';
+        }
+
+        $congeModel->update($id, [
+            'statut' => 'refusee',
+            'commentaire_rh' => $commentaire,
+            'traite_par' => session()->get('employe_id') ?? 2,
+        ]);
+
         return redirect()->to('/rh/demandes')
-            ->with('error', 'Demande introuvable.');
+            ->with('success', 'Demande refusée avec succès.');
     }
 
-    if ($demande['statut'] !== 'en_attente') {
-        return redirect()->to('/rh/demandes')
-            ->with('error', 'Cette demande a déjà été traitée.');
+    public function soldes()
+    {
+        $soldeModel = new SoldeModel();
+
+        $data['soldes'] = $soldeModel
+            ->select('soldes.*, employes.nom, employes.prenom, departements.nom AS departement_nom, types_conge.libelle AS type_conge')
+            ->join('employes', 'employes.id = soldes.employe_id')
+            ->join('departements', 'departements.id = employes.departement_id', 'left')
+            ->join('types_conge', 'types_conge.id = soldes.type_conge_id')
+            ->orderBy('employes.nom', 'ASC')
+            ->findAll();
+
+        return view('rh/soldes', $data);
     }
-
-    $annee = date('Y', strtotime($demande['date_debut']));
-
-    $solde = $soldeModel
-        ->where('employe_id', $demande['employe_id'])
-        ->where('type_conge_id', $demande['type_conge_id'])
-        ->where('annee', $annee)
-        ->first();
-
-    if (! $solde) {
-        return redirect()->to('/rh/demandes')
-            ->with('error', 'Solde introuvable pour cet employé.');
-    }
-
-    $joursRestants = $solde['jours_attribues'] - $solde['jours_pris'];
-
-    if ($joursRestants < $demande['nb_jours']) {
-        return redirect()->to('/rh/demandes')
-            ->with('error', 'Solde insuffisant pour approuver cette demande.');
-    }
-
-    $soldeModel->update($solde['id'], [
-        'jours_pris' => $solde['jours_pris'] + $demande['nb_jours'],
-    ]);
-
-    $congeModel->update($id, [
-        'statut' => 'approuvee',
-        'commentaire_rh' => 'Demande approuvée par le responsable RH.',
-        'traite_par' => session()->get('employe_id') ?? 2,
-    ]);
-
-    return redirect()->to('/rh/demandes')
-        ->with('success', 'Demande approuvée. Le solde a été mis à jour.');
-}
-
-
-public function refuser($id)
-{
-    $congeModel = new CongeModel();
-
-    $demande = $congeModel->find($id);
-
-    if (! $demande) {
-        return redirect()->to('/rh/demandes')
-            ->with('error', 'Demande introuvable.');
-    }
-
-    if ($demande['statut'] !== 'en_attente') {
-        return redirect()->to('/rh/demandes')
-            ->with('error', 'Cette demande a déjà été traitée.');
-    }
-
-    $commentaire = $this->request->getPost('commentaire_rh');
-
-    if (empty($commentaire)) {
-        $commentaire = 'Demande refusée par le responsable RH.';
-    }
-
-    $congeModel->update($id, [
-        'statut' => 'refusee',
-        'commentaire_rh' => $commentaire,
-        'traite_par' => session()->get('employe_id') ?? 2,
-    ]);
-
-    return redirect()->to('/rh/demandes')
-        ->with('success', 'Demande refusée avec succès.');
-}
 }
