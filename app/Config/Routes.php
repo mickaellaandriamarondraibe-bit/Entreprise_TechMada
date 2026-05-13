@@ -17,3 +17,10 @@ $routes->group('rh', ['namespace' => 'App\Controllers\RH'], function ($routes) {
     $routes->post('refuser/(:num)', 'RhController::refuser/$1');
 });
 
+
+$routes->group('employe', ['namespace' => 'App\Controllers\Employe'], function ($routes) {
+    $routes->get('/',              'DashboardController::index');  // ← ajouter
+    $routes->get('conges',         'CongeController::index');
+    $routes->get('conges/demande', 'CongeController::demandeForm');
+    $routes->post('conges/demande','CongeController::demande');
+});
