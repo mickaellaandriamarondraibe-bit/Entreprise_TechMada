@@ -28,5 +28,6 @@ $routes->group('employe', ['namespace' => 'App\Controllers\Employe'], function (
 });
 
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+    $routes->get('', 'AdminController::dashboard');
     $routes->get('dashboard', 'AdminController::dashboard');
 });
