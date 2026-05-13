@@ -4,6 +4,7 @@ namespace App\Controllers\RH;
 
 use App\Models\CongeModel;
 use App\Models\SoldeModel;
+use App\Controllers\BaseController;
 
 class RhController extends BaseController
 {
