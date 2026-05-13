@@ -23,13 +23,9 @@ $routes->group('rh', ['namespace' => 'App\Controllers\RH'], function ($routes) {
 $routes->group('employe', ['namespace' => 'App\Controllers\Employe'], function ($routes) {
     $routes->get('/',              'DashboardController::index');  // ← ajouter
     $routes->get('conges',         'CongeController::index');
-<<<<<<< HEAD
    $routes->get('conges/create',         'CongeController::create');
     $routes->post('conges/store',         'CongeController::store');
     $routes->get('conges/cancel/(:num)',  'CongeController::cancel/$1');
-=======
-    $routes->get('conges/demande', 'CongeController::demandeForm');
-    $routes->post('conges/demande','CongeController::demande');
 });
 
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
@@ -41,5 +37,11 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     $routes->get('employes/edit/(:num)', 'AdminController::editEmploye/$1');
     $routes->post('employes/update/(:num)', 'AdminController::updateEmploye/$1');
     $routes->get('employes/delete/(:num)', 'AdminController::deleteEmploye/$1');
->>>>>>> ac1edf7682d4ce906632f652af5a0aa048eb6707
+
+    $routes->get('departements',              'DepartementController::index');
+    $routes->get('departements/create',       'DepartementController::create');
+    $routes->post('departements/store',       'DepartementController::store');
+    $routes->get('departements/edit/(:num)',  'DepartementController::edit/$1');
+    $routes->post('departements/update/(:num)', 'DepartementController::update/$1');
+    $routes->get('departements/delete/(:num)', 'DepartementController::delete/$1');
 });
