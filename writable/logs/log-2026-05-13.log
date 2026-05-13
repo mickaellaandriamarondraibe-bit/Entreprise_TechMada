@@ -693,6 +693,7 @@ in APPPATH/Controllers/AuthController.php on line 5.
 12 SYSTEMPATH/rewrite.php(44): require_once('/home/idealy/Documents/S4/Sys Info Mr Rojo/Entreprise_TechMada/public/index.php')
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 CRITICAL - 2026-05-13 08:13:17 --> Error: Class "App\Controllers\RH\BaseController" not found
 [Method: GET, Route: rh/demandes]
 in APPPATH/Controllers/RH/RhController.php on line 8.
@@ -711,6 +712,8 @@ in APPPATH/Controllers/RH/RhController.php on line 8.
 =======
 =======
 >>>>>>> 40c44f8 (fix : ajout du import baseController)
+=======
+>>>>>>> 7d408d2 (feat'liste demandes})
 CRITICAL - 2026-05-13 08:54:02 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "employe/conges/demandes.php"
 [Method: GET, Route: employe/conges]
 in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
@@ -723,6 +726,7 @@ in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
  7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
  9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 7d408d2 (feat'liste demandes})
 =======
@@ -1415,3 +1419,5 @@ in SYSTEMPATH/Database/SQLite3/Connection.php on line 164.
 12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
 14 SYSTEMPATH/rewrite.php(44): require_once('/home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/Entreprise_TechMada/public/index.php')
+=======
+>>>>>>> 7d408d2 (feat'liste demandes})

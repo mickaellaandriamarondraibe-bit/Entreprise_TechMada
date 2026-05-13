@@ -10,14 +10,10 @@ class CongeController extends BaseController
     public function index()
     {
         $employe_id = session()->get('employe_id');
+        $congeModel = new CongeModel();
 
-            $soldeModel = new SoldeModel();
-            $congeModel = new CongeModel();
-
-            return view('employe/conge/demandes', [
-                'soldes'             => $soldeModel->getSoldesAvecType($employe_id),
-                'stats'              => $congeModel->getStats($employe_id),
-                'dernieres_demandes' => $congeModel->getDernieresDemandes($employe_id),
-            ]);
+        return view('employe/conge/demands', [
+            'demandes' => $congeModel->getDemandesEmploye($employe_id),
+        ]);
     }
 }
