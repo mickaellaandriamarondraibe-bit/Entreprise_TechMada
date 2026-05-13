@@ -692,6 +692,7 @@ in APPPATH/Controllers/AuthController.php on line 5.
 11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
 12 SYSTEMPATH/rewrite.php(44): require_once('/home/idealy/Documents/S4/Sys Info Mr Rojo/Entreprise_TechMada/public/index.php')
 <<<<<<< HEAD
+<<<<<<< HEAD
 CRITICAL - 2026-05-13 08:13:17 --> Error: Class "App\Controllers\RH\BaseController" not found
 [Method: GET, Route: rh/demandes]
 in APPPATH/Controllers/RH/RhController.php on line 8.
@@ -708,6 +709,8 @@ in APPPATH/Controllers/RH/RhController.php on line 8.
 11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
 12 SYSTEMPATH/rewrite.php(44): require_once('/home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/Entreprise_TechMada/public/index.php')
 =======
+=======
+>>>>>>> 40c44f8 (fix : ajout du import baseController)
 CRITICAL - 2026-05-13 08:54:02 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "employe/conges/demandes.php"
 [Method: GET, Route: employe/conges]
 in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
@@ -720,4 +723,24 @@ in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
  7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
  9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+<<<<<<< HEAD
 >>>>>>> 7d408d2 (feat'liste demandes})
+=======
+=======
+CRITICAL - 2026-05-13 08:13:17 --> Error: Class "App\Controllers\RH\BaseController" not found
+[Method: GET, Route: rh/demandes]
+in APPPATH/Controllers/RH/RhController.php on line 8.
+ 1 VENDORPATH/composer/ClassLoader.php(576): include()
+ 2 VENDORPATH/composer/ClassLoader.php(427): Composer\Autoload\{closure}()
+ 3 [internal function]: Composer\Autoload\ClassLoader->loadClass()
+ 4 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 5 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 7 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/Entreprise_TechMada/public/index.php')
+>>>>>>> d8226fd (fix : ajout du import baseController)
+>>>>>>> 40c44f8 (fix : ajout du import baseController)
