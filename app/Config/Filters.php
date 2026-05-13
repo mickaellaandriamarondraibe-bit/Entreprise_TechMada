@@ -75,15 +75,16 @@ class Filters extends BaseFilters
      *     after: array<string, array{except: list<string>|string}>|list<string>
      * }
      */
-    public array $globals = [
+  public array $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+            'honeypot',
+            'csrf',
+            'auth' => ['except' => ['login', 'login/*']],  // ← ajouter cette ligne
         ],
         'after' => [
-            // 'honeypot',
-            // 'secureheaders',
+            'toolbar',
+            'honeypot',
+            'pagecache',
         ],
     ];
 

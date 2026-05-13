@@ -9,18 +9,18 @@ class CreateEmployes extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id' => ['type' => 'INTEGER', 'auto_increment' => true],
-            'nom' => ['type' => 'VARCHAR', 'constraint' => 100],
-            'prenom' => ['type' => 'VARCHAR', 'constraint' => 100],
-            'email' => ['type' => 'VARCHAR', 'constraint' => 150],
-            'password' => ['type' => 'VARCHAR', 'constraint' => 255],
-            'role' => ['type' => 'VARCHAR', 'constraint' => 20],
-            'departement_id' => ['type' => 'INTEGER'],
-            'actif' => ['type' => 'INTEGER', 'default' => 1],
-            'created_at' => ['type' => 'DATETIME', 'null' => true],
-            'updated_at' => ['type' => 'DATETIME', 'null' => true],
+            'id'             => ['type' => 'INTEGER', 'auto_increment' => true],
+            'nom'            => ['type' => 'VARCHAR', 'constraint' => 100],
+            'prenom'         => ['type' => 'VARCHAR', 'constraint' => 100],
+            'email'          => ['type' => 'VARCHAR', 'constraint' => 150],
+            'password'       => ['type' => 'VARCHAR', 'constraint' => 255],
+            'role'           => ['type' => 'VARCHAR', 'constraint' => 20, 'default' => 'employe'],
+            'departement_id' => ['type' => 'INTEGER', 'null' => true],
+            'date_embauche'  => ['type' => 'DATE', 'null' => true],  // ← manquait
+            'actif'          => ['type' => 'INTEGER', 'default' => 1],
+            'created_at'     => ['type' => 'DATETIME', 'null' => true],
+            'updated_at'     => ['type' => 'DATETIME', 'null' => true],
         ]);
-
         $this->forge->addKey('id', true);
         $this->forge->addUniqueKey('email');
         $this->forge->createTable('employes');

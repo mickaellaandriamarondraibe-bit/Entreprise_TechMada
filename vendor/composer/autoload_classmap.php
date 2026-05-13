@@ -6,9 +6,20 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\AuthController' => $baseDir . '/app/Controllers/AuthController.php',
+    'App\\Controllers\\Employe\\CongeController' => $baseDir . '/app/Controllers/Employe/CongeController.php',
+    'App\\Controllers\\Employe\\DashboardController' => $baseDir . '/app/Controllers/Employe/DashboardController.php',
     'App\\Controllers\\UserController' => $baseDir . '/app/Controllers/UserController.php',
+    'App\\Database\\Seeds\\DatabaseSeeder' => $baseDir . '/app/Database/Seeds/DatabaseSeeder.php',
+    'App\\Database\\Seeds\\DepartementSeeder' => $baseDir . '/app/Database/Seeds/DepartementSeeder.php',
+    'App\\Database\\Seeds\\EmployeSeeder' => $baseDir . '/app/Database/Seeds/EmployeSeeder.php',
+    'App\\Database\\Seeds\\SoldeSeeder' => $baseDir . '/app/Database/Seeds/SoldeSeeder.php',
+    'App\\Database\\Seeds\\TypeCongeSeeder' => $baseDir . '/app/Database/Seeds/TypeCongeSeeder.php',
     'App\\Filters\\AuthFilter' => $baseDir . '/app/Filters/AuthFilter.php',
     'App\\Filters\\RoleFilter' => $baseDir . '/app/Filters/RoleFilter.php',
+    'App\\Models\\CongeModel' => $baseDir . '/app/Models/CongeModel.php',
+    'App\\Models\\EmployeModel' => $baseDir . '/app/Models/EmployeModel.php',
+    'App\\Models\\SoldeModel' => $baseDir . '/app/Models/SoldeModel.php',
     'App\\Models\\UserModel' => $baseDir . '/app/Models/UserModel.php',
     'App\\ThirdParty\\ExportPDF' => $baseDir . '/app/ThirdParty/ExportPDF.php',
     'CodeIgniter\\API\\ApiException' => $vendorDir . '/codeigniter4/framework/system/API/ApiException.php',
