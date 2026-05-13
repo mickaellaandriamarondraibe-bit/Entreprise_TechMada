@@ -55,13 +55,20 @@
       </div>
       <?php endif; ?>
 
+      <?php if (session()->getFlashdata('success')): ?>
+      <div class="flash flash-success">
+        <i class="bi bi-check-circle-fill"></i>
+        <?= session()->getFlashdata('success') ?>
+      </div>
+      <?php endif; ?>
+
       <div style="display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start">
 
         <!-- Formulaire principal -->
         <div class="form-section">
           <h3>Détails de la demande</h3>
 
-          <form action="<?= base_url('employe/conges/store') ?>" method="POST">
+          <form action="<?= base_url('employe/conges/store') ?>" method="POST" id="formConge">
             <?= csrf_field() ?>
 
             <!-- Type de congé -->
@@ -76,33 +83,36 @@
                 </option>
                 <?php endforeach; ?>
               </select>
-              <?php if (isset($errors['type_conge_id'])): ?>
-              <div class="f-error"><i class="bi bi-exclamation-circle"></i> <?= $errors['type_conge_id'] ?></div>
-              <?php endif; ?>
             </div>
 
             <!-- Dates -->
             <div class="form-grid-2" style="margin-bottom:1rem">
               <div class="f-group">
                 <label class="f-label">Date de début <span style="color:var(--danger)">*</span></label>
-                <input type="date" class="f-input" name="date_debut"
+                <input type="date" class="f-input" name="date_debut" id="date_debut"
                        value="<?= old('date_debut') ?>"
                        min="<?= date('Y-m-d', strtotime('+2 days')) ?>"
                        required/>
-                <?php if (isset($errors['date_debut'])): ?>
-                <div class="f-error"><?= $errors['date_debut'] ?></div>
-                <?php endif; ?>
+                <div class="f-error" id="err_debut" style="display:none">
+                  <i class="bi bi-exclamation-circle"></i> Choisir un jour ouvrable (lun-ven).
+                </div>
               </div>
               <div class="f-group">
                 <label class="f-label">Date de fin <span style="color:var(--danger)">*</span></label>
-                <input type="date" class="f-input" name="date_fin"
+                <input type="date" class="f-input" name="date_fin" id="date_fin"
                        value="<?= old('date_fin') ?>"
                        min="<?= date('Y-m-d', strtotime('+2 days')) ?>"
                        required/>
-                <?php if (isset($errors['date_fin'])): ?>
-                <div class="f-error"><?= $errors['date_fin'] ?></div>
-                <?php endif; ?>
+                <div class="f-error" id="err_fin" style="display:none">
+                  <i class="bi bi-exclamation-circle"></i> Choisir un jour ouvrable (lun-ven).
+                </div>
               </div>
+            </div>
+
+            <!-- Calcul jours ouvrables dynamique -->
+            <div class="f-computed" id="computed_jours" style="display:none">
+              <div class="f-computed-num" id="nb_jours_display">0</div>
+              <div class="f-computed-label">jours ouvrables calculés</div>
             </div>
 
             <!-- Motif -->
@@ -114,7 +124,7 @@
             </div>
 
             <div class="form-actions">
-              <button class="btn-forest" type="submit">
+              <button class="btn-forest" type="submit" id="btnSubmit">
                 <i class="bi bi-send"></i> Soumettre la demande
               </button>
               <a href="<?= base_url('employe') ?>" class="btn-secondary">
@@ -142,9 +152,7 @@
               <div>
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
                   <span style="font-size:.8rem;color:var(--ink)"><?= esc($solde['libelle']) ?></span>
-                  <span style="font-size:.8rem;color:var(--forest);font-weight:500">
-                    <?= $restant ?> j
-                  </span>
+                  <span style="font-size:.8rem;color:var(--forest);font-weight:500"><?= $restant ?> j</span>
                 </div>
                 <div class="solde-bar">
                   <div class="solde-fill <?= $pourcent < 30 ? 'warn' : '' ?>"
@@ -168,10 +176,11 @@
               <li>Préavis minimum : 48h avant le début</li>
               <li>Pas de chevauchement avec une demande en cours</li>
               <li>Solde insuffisant = demande refusée</li>
+              <li>Weekends non comptabilisés</li>
             </ul>
           </div>
-
         </div>
+
       </div>
     </div>
     <div class="footer-app"><i class="bi bi-c-circle"></i> 2025 <span>TechMada RH</span></div>
@@ -179,5 +188,66 @@
 
 </div>
 </section>
+
+<script>
+function isWeekend(dateStr) {
+    const d = new Date(dateStr);
+    const jour = d.getDay(); // 0=dim, 6=sam
+    return jour === 0 || jour === 6;
+}
+
+function joursOuvrables(debut, fin) {
+    let d = new Date(debut);
+    let f = new Date(fin);
+    let jours = 0;
+    while (d <= f) {
+        const j = d.getDay();
+        if (j !== 0 && j !== 6) jours++;
+        d.setDate(d.getDate() + 1);
+    }
+    return jours;
+}
+
+function validerDates() {
+    const debut = document.getElementById('date_debut').value;
+    const fin   = document.getElementById('date_fin').value;
+    const errDebut = document.getElementById('err_debut');
+    const errFin   = document.getElementById('err_fin');
+    const computed = document.getElementById('computed_jours');
+    const nbDisplay = document.getElementById('nb_jours_display');
+    let ok = true;
+
+    // Vérifier weekend début
+    if (debut && isWeekend(debut)) {
+        errDebut.style.display = 'block';
+        document.getElementById('date_debut').value = '';
+        ok = false;
+    } else {
+        errDebut.style.display = 'none';
+    }
+
+    // Vérifier weekend fin
+    if (fin && isWeekend(fin)) {
+        errFin.style.display = 'block';
+        document.getElementById('date_fin').value = '';
+        ok = false;
+    } else {
+        errFin.style.display = 'none';
+    }
+
+    // Calculer et afficher jours ouvrables
+    if (debut && fin && ok && fin >= debut) {
+        const nb = joursOuvrables(debut, fin);
+        nbDisplay.textContent = nb;
+        computed.style.display = 'flex';
+    } else {
+        computed.style.display = 'none';
+    }
+}
+
+document.getElementById('date_debut').addEventListener('change', validerDates);
+document.getElementById('date_fin').addEventListener('change',   validerDates);
+</script>
+
 </body>
 </html>

@@ -46,6 +46,31 @@ class CongeModel extends Model
         ];
     }
 
+    // Calculer nb_jours ouvrables (sans weekends)
+    public function calculerJoursOuvrables($date_debut, $date_fin)
+    {
+        $debut  = new \DateTime($date_debut);
+        $fin    = new \DateTime($date_fin);
+        $jours  = 0;
+
+        while ($debut <= $fin) {
+            $jour = (int) $debut->format('N'); // 1=lundi ... 7=dimanche
+            if ($jour < 6) {  // 6=samedi, 7=dimanche
+                $jours++;
+            }
+            $debut->modify('+1 day');
+        }
+
+        return $jours;
+    }
+
+    // Vérifier si date_debut tombe un weekend
+    public function isWeekend($date)
+    {
+        $jour = (int) (new \DateTime($date))->format('N');
+        return $jour >= 6; // 6=samedi, 7=dimanche
+    }
+
     // Toutes les demandes en attente — pour le RH
     public function getDemandesEnAttente()
     {
