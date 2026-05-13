@@ -15,5 +15,6 @@ $routes->group('rh', ['namespace' => 'App\Controllers\RH'], function ($routes) {
     $routes->get('approuver/(:num)', 'RhController::approuver/$1');
     $routes->post('refuser/(:num)', 'RhController::refuser/$1');
     $routes->get('soldes', 'RhController::soldes');
+    $routes->get('historique', 'RhController::historique'); 
 });
 

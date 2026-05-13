@@ -131,4 +131,20 @@ class RhController extends BaseController
 
         return view('rh/soldes', $data);
     }
+
+    public function historique()
+{
+    $congeModel = new CongeModel();
+
+    $data['demandes'] = $congeModel
+        ->select('conges.*, employes.nom, employes.prenom, departements.nom AS departement_nom, types_conge.libelle AS type_conge')
+        ->join('employes', 'employes.id = conges.employe_id')
+        ->join('departements', 'departements.id = employes.departement_id', 'left')
+        ->join('types_conge', 'types_conge.id = conges.type_conge_id')
+        ->whereIn('conges.statut', ['approuvee', 'refusee', 'annulee'])
+        ->orderBy('conges.created_at', 'DESC')
+        ->findAll();
+
+    return view('rh/historique', $data);
+}
 }
