@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class TypeCongeModel extends Model
 {
-    protected $table            = 'typeconges';
+    protected $table = 'types_conge';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
