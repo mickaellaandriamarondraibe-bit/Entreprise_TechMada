@@ -20,8 +20,8 @@
             <ul class="sidebar-nav">
                 <li><a href="<?= site_url('admin/dashboard') ?>" class="active"><i class="bi bi-speedometer2"></i> Vue d'ensemble</a></li>
                 <li><a href="<?= site_url('admin/employes') ?>"><i class="bi bi-people"></i> Employés</a></li>
-                <li><a href="<?= site_url('admin/types-conge') ?>"><i class="bi bi-tags"></i> Types de congé</a></li>
                 <li><a href="<?= site_url('admin/soldes') ?>"><i class="bi bi-sliders"></i> Soldes annuels</a></li>
+                <li><a href="<?= site_url('admin/departements') ?>"><i class="bi bi-sliders"></i> Departements</a></li>
             </ul>
         </aside>
 
