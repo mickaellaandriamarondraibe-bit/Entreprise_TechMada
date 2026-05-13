@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Database\Seeds;
+
 use CodeIgniter\Database\Seeder;
 
 class EmployeSeeder extends Seeder
@@ -8,31 +10,37 @@ class EmployeSeeder extends Seeder
     {
         $this->db->table('employes')->insertBatch([
             [
-                'nom'            => 'Admin',
-                'prenom'         => 'Principal',
-                'email'          => 'admin@test.com',
-                'password'       => password_hash('1234', PASSWORD_DEFAULT),
-                'role'           => 'admin',
+                'id' => 1,
+                'nom' => 'Admin',
+                'prenom' => 'Principal',
+                'email' => 'admin@test.com',
+                'password' => password_hash('1234', PASSWORD_DEFAULT),
+                'role' => 'admin',
                 'departement_id' => 1,
-                'actif'          => 1,
+                'date_embauche' => '2026-01-01',
+                'actif' => 1,
             ],
             [
-                'nom'            => 'RH',
-                'prenom'         => 'Responsable',
-                'email'          => 'rh@test.com',
-                'password'       => password_hash('1234', PASSWORD_DEFAULT),
-                'role'           => 'rh',
+                'id' => 2,
+                'nom' => 'RH',
+                'prenom' => 'Responsable',
+                'email' => 'rh@test.com',
+                'password' => password_hash('1234', PASSWORD_DEFAULT),
+                'role' => 'rh',
                 'departement_id' => 2,
-                'actif'          => 1,
+                'date_embauche' => '2026-01-01',
+                'actif' => 1,
             ],
             [
-                'nom'            => 'Rakoto',
-                'prenom'         => 'Jean',
-                'email'          => 'employe@test.com',
-                'password'       => password_hash('1234', PASSWORD_DEFAULT),
-                'role'           => 'employe',
+                'id' => 3,
+                'nom' => 'Rakoto',
+                'prenom' => 'Jean',
+                'email' => 'employe@test.com',
+                'password' => password_hash('1234', PASSWORD_DEFAULT),
+                'role' => 'employee',
                 'departement_id' => 1,
-                'actif'          => 1,
+                'date_embauche' => '2026-01-01',
+                'actif' => 1,
             ],
         ]);
     }
