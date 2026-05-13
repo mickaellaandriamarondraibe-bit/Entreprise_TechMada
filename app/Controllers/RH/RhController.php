@@ -9,18 +9,29 @@ use App\Controllers\BaseController;
 class RhController extends BaseController
 {
     public function demandes()
-    {
-        $congeModel = new CongeModel();
+{
+    $congeModel = new CongeModel();
 
-        $data['demandes'] = $congeModel
-            ->select('conges.*, employes.nom, employes.prenom, types_conge.libelle AS type_conge')
-            ->join('employes', 'employes.id = conges.employe_id')
-            ->join('types_conge', 'types_conge.id = conges.type_conge_id')
-            ->where('conges.statut', 'en_attente')
-            ->findAll();
+    $statut = $this->request->getGet('statut');
 
-        return view('rh/demandes', $data);
+    $builder = $congeModel
+        ->select('conges.*, employes.nom, employes.prenom, departements.nom AS departement_nom, types_conge.libelle AS type_conge')
+        ->join('employes', 'employes.id = conges.employe_id')
+        ->join('departements', 'departements.id = employes.departement_id', 'left')
+        ->join('types_conge', 'types_conge.id = conges.type_conge_id');
+
+    if (! empty($statut)) {
+        $builder->where('conges.statut', $statut);
     }
+
+    $data['demandes'] = $builder
+        ->orderBy('conges.created_at', 'DESC')
+        ->findAll();
+
+    $data['statutActif'] = $statut ?? 'tous';
+
+    return view('rh/demandes', $data);
+}
 
     public function approuver($id)
 {

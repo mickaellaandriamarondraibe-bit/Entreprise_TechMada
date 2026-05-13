@@ -95,21 +95,29 @@
                 <?php endif; ?>
 
                 <div style="display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap">
-                    <a href="<?= site_url('rh/demandes') ?>" class="btn-forest" style="border-radius:20px;font-size:.8rem">
-                        Tous
-                    </a>
+                    <a href="<?= site_url('rh/demandes') ?>"
+   class="<?= ($statutActif ?? 'tous') === 'tous' ? 'btn-forest' : 'btn-secondary' ?>"
+   style="border-radius:20px;font-size:.8rem">
+    Tous
+</a>
 
-                    <a href="<?= site_url('rh/demandes?statut=en_attente') ?>" class="btn-secondary" style="border-radius:20px;font-size:.8rem">
-                        En attente
-                    </a>
+<a href="<?= site_url('rh/demandes?statut=en_attente') ?>"
+   class="<?= ($statutActif ?? '') === 'en_attente' ? 'btn-forest' : 'btn-secondary' ?>"
+   style="border-radius:20px;font-size:.8rem">
+    En attente
+</a>
 
-                    <a href="<?= site_url('rh/demandes?statut=approuvee') ?>" class="btn-secondary" style="border-radius:20px;font-size:.8rem">
-                        Approuvées
-                    </a>
+<a href="<?= site_url('rh/demandes?statut=approuvee') ?>"
+   class="<?= ($statutActif ?? '') === 'approuvee' ? 'btn-forest' : 'btn-secondary' ?>"
+   style="border-radius:20px;font-size:.8rem">
+    Approuvées
+</a>
 
-                    <a href="<?= site_url('rh/demandes?statut=refusee') ?>" class="btn-secondary" style="border-radius:20px;font-size:.8rem">
-                        Refusées
-                    </a>
+<a href="<?= site_url('rh/demandes?statut=refusee') ?>"
+   class="<?= ($statutActif ?? '') === 'refusee' ? 'btn-forest' : 'btn-secondary' ?>"
+   style="border-radius:20px;font-size:.8rem">
+    Refusées
+</a>
                 </div>
 
                 <div class="data-card">
