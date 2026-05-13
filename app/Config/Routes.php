@@ -42,4 +42,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     $routes->get('types-conge/edit/(:num)', 'AdminController::editTypeConge/$1');
     $routes->post('types-conge/update/(:num)', 'AdminController::updateTypeConge/$1');
     $routes->get('types-conge/delete/(:num)', 'AdminController::deleteTypeConge/$1');
+   $routes->get('conges/create',         'CongeController::create');
+    $routes->post('conges/store',         'CongeController::store');
+    $routes->get('conges/cancel/(:num)',  'CongeController::cancel/$1');
 });

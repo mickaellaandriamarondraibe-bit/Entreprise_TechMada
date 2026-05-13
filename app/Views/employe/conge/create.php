@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle demande</title>
+    <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+</head>
+<body>
+<section id="page-form-conge" style="margin-top:3rem">
+<div class="app-wrap">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-logo-icon"><i class="bi bi-briefcase"></i></div>
+      <div class="sidebar-brand-name">TechMada RH<span>Espace employé</span></div>
+    </div>
+    <ul class="sidebar-nav" style="margin-top:1rem">
+      <li><a href="<?= base_url('employe') ?>"><i class="bi bi-grid-1x2"></i> Tableau de bord</a></li>
+      <li><a href="<?= base_url('employe/conges/create') ?>" class="active"><i class="bi bi-plus-circle"></i> Nouvelle demande</a></li>
+      <li><a href="<?= base_url('employe/conges') ?>"><i class="bi bi-calendar3"></i> Mes demandes</a></li>
+    </ul>
+    <div class="sidebar-user">
+      <div class="s-user-row">
+        <div class="avatar av-green">
+          <?= strtoupper(substr(session()->get('prenom'), 0, 1)) . strtoupper(substr(session()->get('nom'), 0, 1)) ?>
+        </div>
+        <div>
+          <div class="user-name"><?= session()->get('prenom') ?> <?= session()->get('nom') ?></div>
+          <div class="user-role">Employé</div>
+        </div>
+        <a href="<?= base_url('logout') ?>" title="Déconnexion" style="margin-left:auto">
+          <i class="bi bi-box-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title">Nouvelle demande de congé</div>
+        <div class="topbar-breadcrumb">
+          <a href="<?= base_url('employe') ?>">Accueil</a> › Nouvelle demande
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <?php if (session()->getFlashdata('error')): ?>
+      <div class="flash flash-error">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        <?= session()->getFlashdata('error') ?>
+      </div>
+      <?php endif; ?>
+
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start">
+
+        <!-- Formulaire principal -->
+        <div class="form-section">
+          <h3>Détails de la demande</h3>
+
+          <form action="<?= base_url('employe/conges/store') ?>" method="POST">
+            <?= csrf_field() ?>
+
+            <!-- Type de congé -->
+            <div class="f-group" style="margin-bottom:1rem">
+              <label class="f-label">Type de congé <span style="color:var(--danger)">*</span></label>
+              <select class="f-select" name="type_conge_id" required>
+                <option value="">-- Choisir un type --</option>
+                <?php foreach ($types as $type): ?>
+                <option value="<?= $type['id'] ?>"
+                  <?= old('type_conge_id') == $type['id'] ? 'selected' : '' ?>>
+                  <?= esc($type['libelle']) ?> (<?= $type['solde'] ?> j restants)
+                </option>
+                <?php endforeach; ?>
+              </select>
+              <?php if (isset($errors['type_conge_id'])): ?>
+              <div class="f-error"><i class="bi bi-exclamation-circle"></i> <?= $errors['type_conge_id'] ?></div>
+              <?php endif; ?>
+            </div>
+
+            <!-- Dates -->
+            <div class="form-grid-2" style="margin-bottom:1rem">
+              <div class="f-group">
+                <label class="f-label">Date de début <span style="color:var(--danger)">*</span></label>
+                <input type="date" class="f-input" name="date_debut"
+                       value="<?= old('date_debut') ?>"
+                       min="<?= date('Y-m-d', strtotime('+2 days')) ?>"
+                       required/>
+                <?php if (isset($errors['date_debut'])): ?>
+                <div class="f-error"><?= $errors['date_debut'] ?></div>
+                <?php endif; ?>
+              </div>
+              <div class="f-group">
+                <label class="f-label">Date de fin <span style="color:var(--danger)">*</span></label>
+                <input type="date" class="f-input" name="date_fin"
+                       value="<?= old('date_fin') ?>"
+                       min="<?= date('Y-m-d', strtotime('+2 days')) ?>"
+                       required/>
+                <?php if (isset($errors['date_fin'])): ?>
+                <div class="f-error"><?= $errors['date_fin'] ?></div>
+                <?php endif; ?>
+              </div>
+            </div>
+
+            <!-- Motif -->
+            <div class="f-group" style="margin-bottom:1rem">
+              <label class="f-label">Motif (optionnel)</label>
+              <textarea class="f-textarea" name="motif"
+                        placeholder="Précisez le motif si nécessaire..."><?= old('motif') ?></textarea>
+              <div class="f-hint">Le motif est visible par le responsable RH.</div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-forest" type="submit">
+                <i class="bi bi-send"></i> Soumettre la demande
+              </button>
+              <a href="<?= base_url('employe') ?>" class="btn-secondary">
+                <i class="bi bi-x"></i> Annuler
+              </a>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Panneau latéral : soldes -->
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div class="data-card" style="margin:0">
+            <div class="data-card-head">
+              <h3><i class="bi bi-piggy-bank" style="color:var(--forest);margin-right:5px"></i>Vos soldes actuels</h3>
+            </div>
+            <div style="padding:.75rem 1.1rem;display:flex;flex-direction:column;gap:.75rem">
+              <?php foreach ($soldes as $solde): ?>
+              <?php
+                $restant  = $solde['jours_attribues'] - $solde['jours_pris'];
+                $pourcent = $solde['jours_attribues'] > 0
+                            ? round(($restant / $solde['jours_attribues']) * 100)
+                            : 0;
+              ?>
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                  <span style="font-size:.8rem;color:var(--ink)"><?= esc($solde['libelle']) ?></span>
+                  <span style="font-size:.8rem;color:var(--forest);font-weight:500">
+                    <?= $restant ?> j
+                  </span>
+                </div>
+                <div class="solde-bar">
+                  <div class="solde-fill <?= $pourcent < 30 ? 'warn' : '' ?>"
+                       style="width:<?= $pourcent ?>%"></div>
+                </div>
+              </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+          <div class="flash flash-info" style="margin:0">
+            <i class="bi bi-info-circle-fill"></i>
+            <span style="font-size:.8rem">Le solde est déduit uniquement à l'approbation.</span>
+          </div>
+
+          <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:.85rem 1rem">
+            <div style="font-size:.78rem;font-weight:500;color:var(--ink);margin-bottom:.5rem">
+              <i class="bi bi-clipboard-check" style="color:var(--forest);margin-right:5px"></i>Règles
+            </div>
+            <ul style="margin:0;padding-left:1rem;font-size:.75rem;color:var(--muted);line-height:1.7">
+              <li>Préavis minimum : 48h avant le début</li>
+              <li>Pas de chevauchement avec une demande en cours</li>
+              <li>Solde insuffisant = demande refusée</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-app"><i class="bi bi-c-circle"></i> 2025 <span>TechMada RH</span></div>
+  </div>
+
+</div>
+</section>
+</body>
+</html>
