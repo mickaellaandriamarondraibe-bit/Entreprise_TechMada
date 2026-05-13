@@ -12,7 +12,16 @@ class EmployeModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields = [
+    'nom',
+    'prenom',
+    'email',
+    'password',
+    'role',
+    'departement_id',
+    'date_embauche',
+    'actif',
+];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
