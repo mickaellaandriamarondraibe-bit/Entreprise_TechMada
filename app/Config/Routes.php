@@ -21,6 +21,7 @@ $routes->group('rh', ['namespace' => 'App\Controllers\RH'], function ($routes) {
 $routes->group('employe', ['namespace' => 'App\Controllers\Employe'], function ($routes) {
     $routes->get('/',              'DashboardController::index');  // ← ajouter
     $routes->get('conges',         'CongeController::index');
-    $routes->get('conges/demande', 'CongeController::demandeForm');
-    $routes->post('conges/demande','CongeController::demande');
+   $routes->get('conges/create',         'CongeController::create');
+    $routes->post('conges/store',         'CongeController::store');
+    $routes->get('conges/cancel/(:num)',  'CongeController::cancel/$1');
 });
