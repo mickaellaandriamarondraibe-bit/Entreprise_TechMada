@@ -147,4 +147,31 @@ class RhController extends BaseController
 
     return view('rh/historique', $data);
 }
+
+    public function dashboard()
+{
+    $congeModel = new CongeModel();
+    $soldeModel = new SoldeModel();
+
+    $data['nbAttente'] = $congeModel->where('statut', 'en_attente')->countAllResults();
+    $data['nbApprouvees'] = $congeModel->where('statut', 'approuvee')->countAllResults();
+    $data['nbRefusees'] = $congeModel->where('statut', 'refusee')->countAllResults();
+
+    $data['demandesRecentes'] = $congeModel
+        ->select('conges.*, employes.nom, employes.prenom, types_conge.libelle AS type_conge')
+        ->join('employes', 'employes.id = conges.employe_id')
+        ->join('types_conge', 'types_conge.id = conges.type_conge_id')
+        ->orderBy('conges.created_at', 'DESC')
+        ->limit(5)
+        ->findAll();
+
+    $data['soldesCritiques'] = $soldeModel
+        ->select('soldes.*, employes.nom, employes.prenom, types_conge.libelle AS type_conge')
+        ->join('employes', 'employes.id = soldes.employe_id')
+        ->join('types_conge', 'types_conge.id = soldes.type_conge_id')
+        ->where('(soldes.jours_attribues - soldes.jours_pris) <=', 2)
+        ->findAll();
+
+    return view('rh/dashboard', $data);
+}
 }
