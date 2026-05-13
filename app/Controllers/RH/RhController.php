@@ -72,4 +72,37 @@ class RhController extends BaseController
     return redirect()->to('/rh/demandes')
         ->with('success', 'Demande approuvée. Le solde a été mis à jour.');
 }
+
+
+public function refuser($id)
+{
+    $congeModel = new CongeModel();
+
+    $demande = $congeModel->find($id);
+
+    if (! $demande) {
+        return redirect()->to('/rh/demandes')
+            ->with('error', 'Demande introuvable.');
+    }
+
+    if ($demande['statut'] !== 'en_attente') {
+        return redirect()->to('/rh/demandes')
+            ->with('error', 'Cette demande a déjà été traitée.');
+    }
+
+    $commentaire = $this->request->getPost('commentaire_rh');
+
+    if (empty($commentaire)) {
+        $commentaire = 'Demande refusée par le responsable RH.';
+    }
+
+    $congeModel->update($id, [
+        'statut' => 'refusee',
+        'commentaire_rh' => $commentaire,
+        'traite_par' => session()->get('employe_id') ?? 2,
+    ]);
+
+    return redirect()->to('/rh/demandes')
+        ->with('success', 'Demande refusée avec succès.');
+}
 }
