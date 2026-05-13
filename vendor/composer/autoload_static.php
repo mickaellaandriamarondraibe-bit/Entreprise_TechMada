@@ -100,9 +100,20 @@ class ComposerStaticInitf5cce40800fa5dae1504b9364f585e6a
     );
 
     public static $classMap = array (
+        'App\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Controllers/AuthController.php',
+        'App\\Controllers\\Employe\\CongeController' => __DIR__ . '/../..' . '/app/Controllers/Employe/CongeController.php',
+        'App\\Controllers\\Employe\\DashboardController' => __DIR__ . '/../..' . '/app/Controllers/Employe/DashboardController.php',
         'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Controllers/UserController.php',
+        'App\\Database\\Seeds\\DatabaseSeeder' => __DIR__ . '/../..' . '/app/Database/Seeds/DatabaseSeeder.php',
+        'App\\Database\\Seeds\\DepartementSeeder' => __DIR__ . '/../..' . '/app/Database/Seeds/DepartementSeeder.php',
+        'App\\Database\\Seeds\\EmployeSeeder' => __DIR__ . '/../..' . '/app/Database/Seeds/EmployeSeeder.php',
+        'App\\Database\\Seeds\\SoldeSeeder' => __DIR__ . '/../..' . '/app/Database/Seeds/SoldeSeeder.php',
+        'App\\Database\\Seeds\\TypeCongeSeeder' => __DIR__ . '/../..' . '/app/Database/Seeds/TypeCongeSeeder.php',
         'App\\Filters\\AuthFilter' => __DIR__ . '/../..' . '/app/Filters/AuthFilter.php',
         'App\\Filters\\RoleFilter' => __DIR__ . '/../..' . '/app/Filters/RoleFilter.php',
+        'App\\Models\\CongeModel' => __DIR__ . '/../..' . '/app/Models/CongeModel.php',
+        'App\\Models\\EmployeModel' => __DIR__ . '/../..' . '/app/Models/EmployeModel.php',
+        'App\\Models\\SoldeModel' => __DIR__ . '/../..' . '/app/Models/SoldeModel.php',
         'App\\Models\\UserModel' => __DIR__ . '/../..' . '/app/Models/UserModel.php',
         'App\\ThirdParty\\ExportPDF' => __DIR__ . '/../..' . '/app/ThirdParty/ExportPDF.php',
         'CodeIgniter\\API\\ApiException' => __DIR__ . '/..' . '/codeigniter4/framework/system/API/ApiException.php',
