@@ -2,9 +2,14 @@
 namespace App\Controllers\Employe;
 
 use App\Controllers\BaseController;
+<<<<<<< HEAD
 use App\Models\SoldeModel;
 use App\Models\CongeModel;
 use App\Models\TypeCongeModel;  // ← manquait
+=======
+use App\Models\SoldeModel;   // ← manquait
+use App\Models\CongeModel;   // ← manquait
+>>>>>>> ac1edf7682d4ce906632f652af5a0aa048eb6707
 
 class CongeController extends BaseController
 {

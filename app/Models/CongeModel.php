@@ -82,10 +82,13 @@ class CongeModel extends Model
             ->orderBy('conges.created_at', 'ASC')
             ->findAll();
     }
+<<<<<<< HEAD
 
     public function insertDemande($data)
     {
         return $this->insert($data);
     }
 
+=======
+>>>>>>> ac1edf7682d4ce906632f652af5a0aa048eb6707
 }
