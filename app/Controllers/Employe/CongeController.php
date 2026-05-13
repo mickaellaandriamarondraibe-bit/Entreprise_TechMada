@@ -34,29 +34,54 @@ class CongeController extends BaseController
         ]);
     }
 
-    public function store()
+   public function store()
     {
-        $employe_id = session()->get('employe_id');
-        $congeModel = new CongeModel();
-        $soldeModel = new SoldeModel();
+        $employe_id    = session()->get('employe_id');
+        $congeModel    = new CongeModel();
+        $soldeModel    = new SoldeModel();
 
         $type_conge_id = $this->request->getPost('type_conge_id');
         $date_debut    = $this->request->getPost('date_debut');
         $date_fin      = $this->request->getPost('date_fin');
         $motif         = $this->request->getPost('motif');
 
-        // Calcul nb_jours
-        $nb_jours = (int) date_diff(
-            date_create($date_debut),
-            date_create($date_fin)
-        )->days + 1;
+        // Vérifier si date_debut est un weekend
+        if ($congeModel->isWeekend($date_debut)) {
+            return redirect()->back()
+                            ->withInput()
+                            ->with('error', 'La date de début ne peut pas être un samedi ou dimanche.');
+        }
+
+        // Vérifier si date_fin est un weekend
+        if ($congeModel->isWeekend($date_fin)) {
+            return redirect()->back()
+                            ->withInput()
+                            ->with('error', 'La date de fin ne peut pas être un samedi ou dimanche.');
+        }
+
+        // Vérifier que date_fin >= date_debut
+        if ($date_fin < $date_debut) {
+            return redirect()->back()
+                            ->withInput()
+                            ->with('error', 'La date de fin doit être après la date de début.');
+        }
+
+        // Calcul jours ouvrables seulement
+        $nb_jours = $congeModel->calculerJoursOuvrables($date_debut, $date_fin);
+
+        if ($nb_jours === 0) {
+            return redirect()->back()
+                            ->withInput()
+                            ->with('error', 'Aucun jour ouvrable dans cette période.');
+        }
 
         // Vérifier solde suffisant
         if (! $soldeModel->isSoldeSuffisant($employe_id, $type_conge_id, $nb_jours)) {
-            return redirect()->back()->with('error', 'Solde insuffisant pour ce type de congé.');
+            return redirect()->back()
+                            ->withInput()
+                            ->with('error', 'Solde insuffisant — il vous reste moins de ' . $nb_jours . ' jours.');
         }
 
-        // Insérer la demande
         $congeModel->insert([
             'employe_id'    => $employe_id,
             'type_conge_id' => $type_conge_id,
@@ -67,8 +92,8 @@ class CongeController extends BaseController
             'statut'        => 'en_attente',
         ]);
 
-        return redirect()->to(base_url('employe/conge'))
-                         ->with('success', 'Demande soumise avec succès.');
+        return redirect()->to(base_url('employe/conges'))
+                        ->with('success', 'Demande soumise — ' . $nb_jours . ' jours ouvrables.');
     }
 
     public function cancel($id)
@@ -90,7 +115,7 @@ class CongeController extends BaseController
 
         $congeModel->update($id, ['statut' => 'annulee']);
 
-        return redirect()->to(base_url('employe/conge'))
+        return redirect()->to(base_url('employe/conges'))
                          ->with('success', 'Demande annulée.');
     }
 }
