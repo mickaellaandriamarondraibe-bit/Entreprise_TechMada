@@ -30,4 +30,10 @@ $routes->group('employe', ['namespace' => 'App\Controllers\Employe'], function (
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
     $routes->get('', 'AdminController::dashboard');
     $routes->get('dashboard', 'AdminController::dashboard');
+    $routes->get('employes', 'AdminController::employes');
+    $routes->get('employes/create', 'AdminController::createEmploye');
+    $routes->post('employes/store', 'AdminController::storeEmploye');
+    $routes->get('employes/edit/(:num)', 'AdminController::editEmploye/$1');
+    $routes->post('employes/update/(:num)', 'AdminController::updateEmploye/$1');
+    $routes->get('employes/delete/(:num)', 'AdminController::deleteEmploye/$1');
 });
