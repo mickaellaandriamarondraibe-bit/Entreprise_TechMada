@@ -31,9 +31,9 @@ class AuthController extends BaseController
 
         // Redirection selon le rôle
         return match($employe['role']) {
-            'rh' => redirect()->to('/rh/demandes'),
-            'admin' => redirect()->to('/admin'),
-            default => redirect()->to('/employe'),
+            'rh'    => redirect()->to(base_url('rh')),
+            'admin' => redirect()->to(base_url('admin')),
+            default => redirect()->to(base_url('employe')),
         };
     }
 
