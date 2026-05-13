@@ -6,8 +6,11 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Controllers\\BaseController' => $baseDir . '/app/Controllers/BaseController.php',
-    'App\\Controllers\\Home' => $baseDir . '/app/Controllers/Home.php',
+    'App\\Controllers\\UserController' => $baseDir . '/app/Controllers/UserController.php',
+    'App\\Filters\\AuthFilter' => $baseDir . '/app/Filters/AuthFilter.php',
+    'App\\Filters\\RoleFilter' => $baseDir . '/app/Filters/RoleFilter.php',
+    'App\\Models\\UserModel' => $baseDir . '/app/Models/UserModel.php',
+    'App\\ThirdParty\\ExportPDF' => $baseDir . '/app/ThirdParty/ExportPDF.php',
     'CodeIgniter\\API\\ApiException' => $vendorDir . '/codeigniter4/framework/system/API/ApiException.php',
     'CodeIgniter\\API\\BaseTransformer' => $vendorDir . '/codeigniter4/framework/system/API/BaseTransformer.php',
     'CodeIgniter\\API\\ResponseTrait' => $vendorDir . '/codeigniter4/framework/system/API/ResponseTrait.php',
