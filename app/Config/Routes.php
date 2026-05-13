@@ -26,3 +26,7 @@ $routes->group('employe', ['namespace' => 'App\Controllers\Employe'], function (
     $routes->get('conges/demande', 'CongeController::demandeForm');
     $routes->post('conges/demande','CongeController::demande');
 });
+
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+    $routes->get('dashboard', 'AdminController::dashboard');
+});
