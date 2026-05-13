@@ -11,6 +11,9 @@
       <li><a href="<?= site_url('admin/dashboard') ?>"><i class="bi bi-speedometer2"></i> Vue d'ensemble</a></li>
       <li><a href="<?= site_url('admin/employes') ?>"><i class="bi bi-people"></i> Employés</a></li>
       <li><a href="<?= site_url('admin/departements') ?>" class="active"><i class="bi bi-diagram-3"></i> Départements</a></li>
+      <a href="<?= base_url('logout') ?>" title="Déconnexion">
+    <i class="bi bi-box-arrow-right"></i>
+</a>
     </ul>
   </aside>
   <div class="main">

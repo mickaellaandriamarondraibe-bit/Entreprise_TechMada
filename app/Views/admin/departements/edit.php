@@ -50,7 +50,9 @@
           </form>
         </div>
       </div>
-
+        <a href="<?= base_url('logout') ?>" title="Déconnexion">
+          <i class="bi bi-box-arrow-right"></i>
+      </a>
     </div>
   </div>
 </div>

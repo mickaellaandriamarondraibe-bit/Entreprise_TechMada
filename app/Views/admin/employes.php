@@ -12,6 +12,9 @@
         <ul class="sidebar-nav">
             <li><a href="<?= site_url('admin/dashboard') ?>"><i class="bi bi-speedometer2"></i> Vue d'ensemble</a></li>
             <li><a href="<?= site_url('admin/employes') ?>" class="active"><i class="bi bi-people"></i> Employés</a></li>
+       <a href="<?= base_url('logout') ?>" title="Déconnexion">
+    <i class="bi bi-box-arrow-right"></i>
+</a>
         </ul>
     </aside>
 

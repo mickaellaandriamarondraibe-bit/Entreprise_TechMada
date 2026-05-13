@@ -9,6 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/',              'AuthController::loginPage');
 $routes->get('login',           'AuthController::loginPage');
 $routes->post('login',          'AuthController::login');
+$routes->get('logout', 'AuthController::logout');
 
 $routes->group('rh', ['namespace' => 'App\Controllers\RH'], function ($routes) {
     $routes->get('demandes', 'RhController::demandes');

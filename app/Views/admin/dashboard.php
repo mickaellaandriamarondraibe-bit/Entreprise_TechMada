@@ -22,6 +22,9 @@
                 <li><a href="<?= site_url('admin/employes') ?>"><i class="bi bi-people"></i> Employés</a></li>
                 <li><a href="<?= site_url('admin/soldes') ?>"><i class="bi bi-sliders"></i> Soldes annuels</a></li>
                 <li><a href="<?= site_url('admin/departements') ?>"><i class="bi bi-sliders"></i> Departements</a></li>
+           <a href="<?= base_url('logout') ?>" title="Déconnexion">
+    <i class="bi bi-box-arrow-right"></i>
+</a>
             </ul>
         </aside>
 
