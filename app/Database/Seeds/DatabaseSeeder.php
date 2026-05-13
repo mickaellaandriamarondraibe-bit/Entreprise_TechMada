@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
     $this->call('TypeCongeSeeder');
     $this->call('EmployeSeeder');
     $this->call('SoldeSeeder');
-}
+    $this->call('CongeSeeder');
+    }
 }
