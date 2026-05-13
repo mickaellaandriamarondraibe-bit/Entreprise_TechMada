@@ -1,0 +1,382 @@
+ERROR - 2026-05-09 18:32:38 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Models/UserModel.php(22): CodeIgniter\BaseModel->first()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(39): App\Models\UserModel->getUserByEmail()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->validationLogin()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#13 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Models/UserModel.php(22): CodeIgniter\BaseModel->first()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(39): App\Models\UserModel->getUserByEmail()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->validationLogin()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2026-05-09 18:32:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: validationLogin]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/UserModel.php(22): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/UserController.php(39): App\Models\UserModel->getUserByEmail()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UserController->validationLogin()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-09 18:34:56 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Models/UserModel.php(22): CodeIgniter\BaseModel->first()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(39): App\Models\UserModel->getUserByEmail()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->validationLogin()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#13 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Models/UserModel.php(22): CodeIgniter\BaseModel->first()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(39): App\Models\UserModel->getUserByEmail()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->validationLogin()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+CRITICAL - 2026-05-09 18:34:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: validationLogin]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Models/UserModel.php(22): CodeIgniter\BaseModel->first()
+ 6 APPPATH/Controllers/UserController.php(39): App\Models\UserModel->getUserByEmail()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UserController->validationLogin()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-09 18:38:08 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 18:38:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: register]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-09 18:44:08 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 18:44:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: register]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-09 18:51:43 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 18:51:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: register]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-09 18:51:46 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 18:51:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: register]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-09 18:51:55 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 18:51:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: register]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ERROR - 2026-05-09 18:52:12 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/app/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+#6 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+#7 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/mickaella/Projet/2026/s4/nouveau/INF205_Systeme_Information/En cours/regimeAlimentaires/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 18:52:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: register]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UserController.php(117): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UserController->enregistrementUser()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
