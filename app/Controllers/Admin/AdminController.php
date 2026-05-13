@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\CongeModel;
 use App\Models\SoldeModel;
 use App\Models\EmployeModel;
+use App\Models\TypeCongeModel;
 
 class AdminController extends BaseController
 {
@@ -140,4 +141,74 @@ public function deleteEmploye($id)
     return redirect()->to('/admin/employes')
         ->with('success', 'Employé désactivé avec succès.');
 }
+
+public function typesConge()
+{
+    $model = new TypeCongeModel();
+
+    return view('admin/types_conge', [
+        'types' => $model->orderBy('id', 'DESC')->findAll(),
+    ]);
+}
+
+public function createTypeConge()
+{
+    return view('admin/type_conge_form', [
+        'mode' => 'create',
+        'type' => null,
+    ]);
+}
+
+public function storeTypeConge()
+{
+    $model = new TypeCongeModel();
+
+    $model->insert([
+        'libelle' => $this->request->getPost('libelle'),
+        'jours_annuels' => $this->request->getPost('jours_annuels'),
+        'deductible' => $this->request->getPost('deductible') ?? 0,
+    ]);
+
+    return redirect()->to('/admin/types-conge')
+        ->with('success', 'Type de congé créé avec succès.');
+}
+
+public function editTypeConge($id)
+{
+    $model = new TypeCongeModel();
+    $type = $model->find($id);
+
+    if (! $type) {
+        return redirect()->to('/admin/types-conge')
+            ->with('error', 'Type de congé introuvable.');
+    }
+
+    return view('admin/type_conge_form', [
+        'mode' => 'edit',
+        'type' => $type,
+    ]);
+}
+
+public function updateTypeConge($id)
+{
+    $model = new TypeCongeModel();
+
+    $model->update($id, [
+        'libelle' => $this->request->getPost('libelle'),
+        'jours_annuels' => $this->request->getPost('jours_annuels'),
+        'deductible' => $this->request->getPost('deductible') ?? 0,
+    ]);
+
+    return redirect()->to('/admin/types-conge')
+        ->with('success', 'Type de congé modifié avec succès.');
+}
+
+public function deleteTypeConge($id)
+{
+    $model = new TypeCongeModel();
+    $model->delete($id);
+
+    return redirect()->to('/admin/types-conge')
+        ->with('success', 'Type de congé supprimé avec succès.');
+}   
 }

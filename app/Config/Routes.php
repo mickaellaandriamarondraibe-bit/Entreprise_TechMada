@@ -36,4 +36,10 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
     $routes->get('employes/edit/(:num)', 'AdminController::editEmploye/$1');
     $routes->post('employes/update/(:num)', 'AdminController::updateEmploye/$1');
     $routes->get('employes/delete/(:num)', 'AdminController::deleteEmploye/$1');
+    $routes->get('types-conge', 'AdminController::typesConge');
+    $routes->get('types-conge/create', 'AdminController::createTypeConge');
+    $routes->post('types-conge/store', 'AdminController::storeTypeConge');
+    $routes->get('types-conge/edit/(:num)', 'AdminController::editTypeConge/$1');
+    $routes->post('types-conge/update/(:num)', 'AdminController::updateTypeConge/$1');
+    $routes->get('types-conge/delete/(:num)', 'AdminController::deleteTypeConge/$1');
 });
